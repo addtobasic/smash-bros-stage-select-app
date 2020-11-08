@@ -14,6 +14,14 @@
           >
             start
           </v-btn>
+
+          <v-btn
+            color="primary"
+            nuxt
+            to="/secondAndSubsequentSelect"
+          >
+            testSecond
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
