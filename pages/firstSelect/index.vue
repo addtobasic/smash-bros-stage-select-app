@@ -25,15 +25,15 @@
                 v-text="item.stageName"
               ></v-card-title>
             </div>
-            <a v-bind:href="item.url" target="_blank">
+            <!-- <a v-bind:href="item.url" target="_blank"> -->
               <v-avatar
                 class="ma-3"
                 size="230"
                 tile
               >
-                <v-img :src="item.picture" id="size"></v-img>
+
               </v-avatar>
-            </a>
+            <!-- </a> -->
           </div>
 
           <div class="d-flex justify-space-between" v-if="!$vuetify.breakpoint.mobile">
@@ -43,15 +43,21 @@
                 v-text="item.stageName"
               ></v-card-title>
             </div>
-            <a v-bind:href="item.url" :target="item.target">
+            <!-- <a v-bind:href="item.url" :target="item.target"> -->
               <v-avatar
                 class="ma-3"
                 size="450"
                 tile
+                @click="isSelected"
               >
-                <v-img :src="item.picture" id="size"></v-img>
+                <div v-if="isSelected">
+                  <v-img :src="item.picture" id="size"></v-img>
+                </div>
+                <div v-else>
+                  <p>jpge</p>
+                </div>
               </v-avatar>
-            </a>
+            <!-- </a> -->
           </div>
         </v-card>
       </v-col>
@@ -60,7 +66,17 @@
 </template>
 <script>
   export default{
+
     name:'about',
+    clicked:false,
+    
+    methods:{
+        isSelected:function(){
+        this.clicked = !this.clicked
+        condole.log("おした")
+      }
+    },
+
     components:{
 
     },

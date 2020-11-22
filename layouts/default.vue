@@ -6,8 +6,9 @@
       fixed
       app
     >
-      <v-icon>mdi-home</v-icon>
-      <v-toolbar-title v-text="title" />
+      <a href="/" style="color:white;">
+        <v-toolbar-title v-text="title" />
+      </a>
       <v-spacer />
     </v-app-bar>
     <v-main>
@@ -53,3 +54,9 @@ export default {
   }
 }
 </script>
+<style>
+  a {
+    color:red;
+    text-decoration: none;
+  }
+</style>
