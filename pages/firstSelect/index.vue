@@ -48,13 +48,13 @@
                 class="ma-3"
                 size="450"
                 tile
-                @click="isSelected"
+                @click="item.select=!item.select"
               >
-                <div v-if="isSelected">
-                  <v-img :src="item.picture" id="size"></v-img>
+                <div v-if="item.select">
+                  <v-img :src="item.selectedPicture" id="size"></v-img>
                 </div>
                 <div v-else>
-                  <p>jpge</p>
+                  <v-img :src="item.picture" id="size"></v-img>
                 </div>
               </v-avatar>
             <!-- </a> -->
@@ -68,40 +68,43 @@
   export default{
 
     name:'about',
-    clicked:false,
-    
-    methods:{
-        isSelected:function(){
-        this.clicked = !this.clicked
-        condole.log("おした")
-      }
-    },
-
     components:{
 
     },
+
     data () {
       return {
         items:[
           {
             stageName:"finalDestination",
             picture:require("static/stage/finalDestination.jpeg"),
+            select:false,
+            selectedPicture:require("static/selected_stage/finalDestination_selected.jpeg")
           },
           {
             stageName:"battleField",
             picture:require("static/stage/battleField.jpeg"),
+            select:false,
+            selectedPicture:require("static/selected_stage/battleField_selected.jpeg")
           },
           {
             stageName:"pokemonStadium2",
             picture:require("static/stage/pokemonStadium2.jpeg"),
+            select:false,
+            selectedPicture:require("static/selected_stage/pokemonStadium2_selected.jpeg")
           },
           {
             stageName:"townAndCity",
             picture:require("static/stage/townAndCity.jpeg"),
+            select:false,
+            selectedPicture:require("static/selected_stage/townAndCity_selected.jpeg")
           },
           {
             stageName:"smashVille",
             picture:require("static/stage/smashVille.jpeg"),
+            select:false,
+            selectedPicture:require("static/selected_stage/smashVille_selected.jpeg")
+
           },
         ]
       }
