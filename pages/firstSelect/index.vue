@@ -11,7 +11,7 @@
     >
       <p>{{DescriptionText[0].person}}</p>
       <p>{{DescriptionText[0].text}}</p>
-      <v-btn @click="reject">reject</v-btn>
+      <v-btn @click="reject">Next</v-btn>
 
       <v-col
         v-for="(item, i) in items"
@@ -127,31 +127,31 @@
 
       items:[
         {
-          stageName:"finalDestination",
+          stageName:"Final Destination",
           picture:require("static/stage/finalDestination.jpeg"),
           select:false,
           selectedPicture:require("static/selected_stage/finalDestination_selected.jpeg")
         },
         {
-          stageName:"battleField",      // }
+          stageName:"Battle Field",
           picture:require("static/stage/battleField.jpeg"),
           select:false,
           selectedPicture:require("static/selected_stage/battleField_selected.jpeg")
         },
         {
-          stageName:"pokemonStadium2",
+          stageName:"Pokemon Stadium2",
           picture:require("static/stage/pokemonStadium2.jpeg"),
           select:false,
           selectedPicture:require("static/selected_stage/pokemonStadium2_selected.jpeg")
         },
         {
-          stageName:"townAndCity",
+          stageName:"Town and City",
           picture:require("static/stage/townAndCity.jpeg"),
           select:false,
           selectedPicture:require("static/selected_stage/townAndCity_selected.jpeg")
         },
         {
-          stageName:"smashVille",
+          stageName:"Smash Ville",
           picture:require("static/stage/smashVille.jpeg"),
           select:false,
           selectedPicture:require("static/selected_stage/smashVille_selected.jpeg")
