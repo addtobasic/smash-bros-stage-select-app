@@ -100,20 +100,6 @@
             this.DescriptionText[0].text = "対戦ステージを選んでください"
           }
         }
-
-
-        // else if(rejectNum === 1){
-        //   if(3 !== i )alert("じゃんけん敗者側は拒否ステージを2つ選択してください")
-        //   else {
-        //     rejectNum++
-        //     console.log(rejectNum)
-
-        //     this.DescriptionText[0].person = "じゃんけん勝者側"
-        //     this.DescriptionText[0].text = "残りのステージから最後の拒否ステージを選んでください"
-        //   }
-        // }
-
-
       }
     },
   data:()=>({
@@ -127,45 +113,62 @@
       items:[
         {
           stageName:"Final Destination",
-          picture:require("static/stage/finalDestination.jpeg"),
+          picture:require("static/stage/normal/finalDestination.png"),
+          redPicture:require("static/stage/red/finalDestination_red.png"),
+          bluePicture:require("static/stage/blue/finalDestination_blue.png"),
+          checkPicture:require("static/stage/check/finalDestination_check.png"),
           select:false,
-          selectedPicture:require("static/selected_stage/finalDestination_selected.jpeg")
         },
         {
           stageName:"Battle Field",
-          picture:require("static/stage/battleField.jpeg"),
+          picture:require("static/stage/normal/battleField.png"),
+          redPicture:require("static/stage/red/battleField_red.png"),
+          bluePicture:require("static/stage/blue/battleField_blue.png"),
+          checkPicture:require("static/stage/check/battleField_check.png"),
           select:false,
-          selectedPicture:require("static/selected_stage/battleField_selected.jpeg")
         },
         {
           stageName:"Pokemon Stadium2",
-          picture:require("static/stage/pokemonStadium2.jpeg"),
+          picture:require("static/stage/normal/pokemonStadium2.png"),
+          redPicture:require("static/stage/red/pokemonStadium2_red.png"),
+          bluePicture:require("static/stage/blue/pokemonStadium2_blue.png"),
+          checkPicture:require("static/stage/check/pokemonStadium2_check.png"),
           select:false,
-          selectedPicture:require("static/selected_stage/pokemonStadium2_selected.jpeg")
         },
         {
           stageName:"Town and City",
-          picture:require("static/stage/townAndCity.jpeg"),
+          picture:require("static/stage/normal/townAndCity.png"),
+          redPicture:require("static/stage/red/townAndCity_red.png"),
+          bluePicture:require("static/stage/blue/townAndCity_blue.png"),
+          checkPicture:require("static/stage/check/townAndCity_check.png"),
           select:false,
-          selectedPicture:require("static/selected_stage/townAndCity_selected.jpeg")
         },
         {
           stageName:"Smash Ville",
-          picture:require("static/stage/smashVille.jpeg"),
+          picture:require("static/stage/normal/smashVille.png"),
+          redPicture:require("static/stage/red/smashVille_red.png"),
+          bluePicture:require("static/stage/blue/smashVille_blue.png"),
+          checkPicture:require("static/stage/check/smashVille_check.png"),
           select:false,
-          selectedPicture:require("static/selected_stage/smashVille_selected.jpeg")
         },
+
+
+
         {
           stageName:"Kalos Pokemon League",
-          picture:require("static/stage/kalosPokemonLeague.jpeg"),
+          picture:require("static/stage/normal/kalosPokemonLeague.png"),
+          redPicture:require("static/stage/red/kalosPokemonLeague_red.png"),
+          bluePicture:require("static/stage/blue/kalosPokemonLeague_blue.png"),
+          checkPicture:require("static/stage/check/kalosPokemonLeague_check.png"),
           select:false,
-          selectedPicture:require("static/selected_stage/kalosPokemonLeague_selected.jpeg")
         },
         {
           stageName:"Lylat",
-          picture:require("static/stage/lylat.jpeg"),
+          picture:require("static/stage/normal/lylat.png"),
+          redPicture:require("static/stage/red/lylat_red.png"),
+          bluePicture:require("static/stage/blue/lylat_blue.png"),
+          checkPicture:require("static/stage/check/lylat_check.png"),
           select:false,
-          selectedPicture:require("static/selected_stage/lylat_selected.jpeg")
         },
       ]
     }
@@ -173,6 +176,7 @@
 </script>
 <style>
   #size{
-    height:250px;
+    height:270px;
+    width:480px;
   }
 </style>
