@@ -12,13 +12,11 @@
       <p>{{DescriptionText[0].person}}</p>
       <p>{{DescriptionText[0].text}}</p>
       <v-btn @click="reject">Next</v-btn>
-
       <v-col
         v-for="(item, i) in items"
         :key="i"
         cols="12"
       >
-
         <v-card dark>
           <div class="justify-space-between" v-if="!$vuetify.breakpoint.mobile">
             <div>
@@ -27,27 +25,26 @@
                 v-text="item.stageName"
               ></v-card-title>
             </div>
-              <v-avatar
-                class="ma-3"
-                size="450"
-                tile
-                @click="item.select=!item.select"
-              >
-                <div v-if="item.select">
-                  <v-img :src="item.picture" id="size"></v-img>
-                </div>
-                <div v-else-if="item.firstReject && !item.secondReject">
-                  <v-img :src="item.redPicture" id="size"></v-img>
-                </div>
-                <div v-else-if="item.secondReject && !item.finalReject">
-                  <v-img :src="item.bluePicture" id="size"></v-img>
-                </div>
-                <div v-else-if="item.finalReject">
-                  <v-img :src="item.checkPicture" id="size"></v-img>
-                </div>
-              </v-avatar>
+            <v-avatar
+              class="ma-3"
+              size="450"
+              tile
+              @click="item.select=!item.select"
+            >
+              <div v-if="item.select">
+                <v-img :src="item.picture" id="size"></v-img>
+              </div>
+              <div v-else-if="item.firstReject && !item.secondReject">
+                <v-img :src="item.redPicture" id="size"></v-img>
+              </div>
+              <div v-else-if="item.secondReject && !item.finalReject">
+                <v-img :src="item.bluePicture" id="size"></v-img>
+              </div>
+              <div v-else-if="item.finalReject">
+                <v-img :src="item.checkPicture" id="size"></v-img>
+              </div>
+            </v-avatar>
           </div>
-
           <div class="d-flex justify-space-between" v-if="$vuetify.breakpoint.mobile">
             <div>
               <v-card-title
@@ -77,7 +74,7 @@
           </div>
         </v-card>
       </v-col>
-        <v-btn to="/secondAndSubsequentSelect">SecondMatch</v-btn>
+      <v-btn to="/secondAndSubsequentSelect">SecondMatch</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -93,45 +90,35 @@
     methods:{
       reject:function(){
         let i=0;
-
         this.items.forEach(function(item){
           if(item.select === false){
             i++;
             console.log("画像のfalseの数"+i)
           }
         })
-        // console.log("確認1")
+
         if(rejectNum === 0){
-          if(1 !== i )alert("じゃんけん勝者側は拒否ステージをひとつ選択してください")
+          if(1 !== i )alert("じゃんけんの勝者は拒否ステージを1つ選択してください")
           else {
             rejectNum++
-            console.log("rejectNum"+rejectNum)
-
             this.items.forEach(function(item){
-              if(item.select)
-              item.secondReject = true
-        })
-            // this.secondReject = true
-            console.log("secondReject:"+this.secondReject)
-            this.DescriptionText[0].person = "じゃんけん敗者側"
-            this.DescriptionText[0].text = "拒否ステージを2つ選んでください"
+              if(item.select)item.secondReject = true
+            })
+            this.DescriptionText[0].person = "じゃんけん敗者"
+            this.DescriptionText[0].text = "拒否ステージを2つ選択してください"
           }
         }
 
         else if(rejectNum === 1){
-          if(3 !== i )alert("じゃんけん敗者側は拒否ステージを2つ選択してください")
+          if(3 !== i )alert("じゃんけんの敗者は拒否ステージを2つ選択してください")
           else {
             rejectNum++
-            console.log(rejectNum)
-
             this.items.forEach(function(item){
               if(item.select)
               item.finalReject = true
-        })
-
-            // this.checkPicture = true
-            this.DescriptionText[0].person = "じゃんけん勝者側"
-            this.DescriptionText[0].text = "残りのステージから対戦ステージを選んでください"
+            })
+            this.DescriptionText[0].person = "じゃんけん勝者"
+            this.DescriptionText[0].text = "残りのステージから対戦ステージを選択してください"
           }
         }
       }
@@ -140,8 +127,8 @@
     data:()=>({
       DescriptionText:[
         {
-          person:"じゃんけんの勝者",
-          text:"拒否ステージをひとつ選んでください"
+          person:"じゃんけん勝者",
+          text:"拒否ステージを1つ選択してください"
         }
       ],
 
@@ -203,7 +190,7 @@
         },
       ]
     }
-    )}
+  )}
 </script>
 <style>
   #size{
