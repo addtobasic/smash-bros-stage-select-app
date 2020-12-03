@@ -1,6 +1,5 @@
 <template>
   <v-app dark>
-
     <v-app-bar
       :clipped-left="clipped"
       fixed
@@ -16,14 +15,6 @@
         <nuxt />
       </v-container>
     </v-main>
-
-
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-
-    </v-footer>
   </v-app>
 </template>
 

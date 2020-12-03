@@ -1,82 +1,86 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
+  <div>
+    <p>{{DescriptionText[0].person}}</p>
+    <p>{{DescriptionText[0].text}}</p>
+    <v-btn @click="reject">Next</v-btn>
+    <v-layout
+      row
     >
-      <p>{{DescriptionText[0].person}}</p>
-      <p>{{DescriptionText[0].text}}</p>
-      <v-btn @click="reject">Next</v-btn>
-      <v-col
+      <v-flex
+        xl4 lg6
         v-for="(item, i) in items"
         :key="i"
-        cols="12"
       >
-        <v-card dark>
-          <div class="justify-space-between" v-if="!$vuetify.breakpoint.mobile">
-            <div>
-              <v-card-title
-                class="headline"
-                v-text="item.stageName"
-              ></v-card-title>
-            </div>
-            <v-avatar
-              class="ma-3"
-              size="450"
-              tile
-              @click="item.select=!item.select"
-            >
-              <div v-if="item.select">
-                <v-img :src="item.picture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.firstReject && !item.secondReject">
-                <v-img :src="item.redPicture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.secondReject && !item.finalReject">
-                <v-img :src="item.bluePicture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.finalReject">
-                <v-img :src="item.checkPicture" id="size"></v-img>
-              </div>
-            </v-avatar>
-          </div>
-          <div class="d-flex justify-space-between" v-if="$vuetify.breakpoint.mobile">
-            <div>
-              <v-card-title
-                class="headline"
-                v-text="item.stageName"
-              ></v-card-title>
-            </div>
-            <v-avatar
-                class="ma-3"
-                size="450"
-                tile
-                @click="item.select=!item.select"
-            >
-              <div v-if="item.select">
-                <v-img :src="item.picture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.firstReject && !item.secondReject">
-                <v-img :src="item.redPicture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.secondReject && !item.finalReject">
-                <v-img :src="item.bluePicture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.finalReject">
-                <v-img :src="item.checkPicture" id="size"></v-img>
-              </div>
-            </v-avatar>
-          </div>
-        </v-card>
-      </v-col>
-      <v-btn to="/secondAndSubsequentSelect">SecondMatch</v-btn>
-    </v-flex>
-  </v-layout>
+        <v-container>
+          <v-row dense>
+            <v-col>
+              <v-card dark>
+                <div class="justify-space-between" v-if="!$vuetify.breakpoint.mobile">
+                  <v-card-title
+                    class="headline"
+                    v-text="item.stageName"
+                  >
+                  </v-card-title>
+                  <v-layout justify-center>
+                    <v-avatar
+                      class="ma-3"
+                      size=""
+                      tile
+                      @click="item.select=!item.select"
+                    >
+                      <div v-if="item.select">
+                        <v-img :src="item.picture" id="imageSize"></v-img>
+                      </div>
+                      <div v-else-if="item.firstReject && !item.secondReject">
+                        <v-img :src="item.redPicture" id="imageSize"></v-img>
+                      </div>
+                      <div v-else-if="item.secondReject && !item.finalReject">
+                        <v-img :src="item.bluePicture" id="imageSize"></v-img>
+                      </div>
+                      <div v-else-if="item.finalReject">
+                        <v-img :src="item.checkPicture" id="imageSize"></v-img>
+                      </div>
+                    </v-avatar>
+                  </v-layout>
+                </div>
+                <div class="d-flex justify-space-between" v-if="$vuetify.breakpoint.mobile">
+                  <div>
+                    <v-card-title
+                      class="headline"
+                      v-text="item.stageName"
+                    ></v-card-title>
+                  </div>
+                  <v-layout justify-center>
+                  <v-avatar
+                      class="ma-3"
+                      size=""
+                      tile
+                      @click="item.select=!item.select"
+                  >
+                    <div v-if="item.select">
+                      <v-img :src="item.picture" id="imageSize"></v-img>
+                    </div>
+                    <div v-else-if="item.firstReject && !item.secondReject">
+                      <v-img :src="item.redPicture" id="imageSize"></v-img>
+                    </div>
+                    <div v-else-if="item.secondReject && !item.finalReject">
+                      <v-img :src="item.bluePicture" id="imageSize"></v-img>
+                    </div>
+                    <div v-else-if="item.finalReject">
+                      <v-img :src="item.checkPicture" id="imageSize"></v-img>
+                    </div>
+                  </v-avatar>
+                  </v-layout>
+
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-flex>
+    </v-layout>
+    <v-btn to="/secondAndSubsequentSelect">SecondMatch</v-btn>
+  </div>
 </template>
 <script>
   let rejectNum = 0;
@@ -193,8 +197,43 @@
   )}
 </script>
 <style>
-  #size{
-    height:270px;
-    width:480px;
+
+
+
+  @media screen and (min-width:0px) and ( max-width:600px){
+    #imageSize{
+      height:90px;
+      width:160px;
+    top: 200px;
+
+    }
+  }
+
+  @media screen and (min-width:600px) and ( max-width:960px){
+    #imageSize{
+      height:270px;
+      width:480px;
+    top: 200px;
+
+    }
+  }
+
+  @media screen and (min-width:960px) and ( max-width:1264px){
+    #imageSize{
+      height:270px;
+      width:480px;
+    top: 200px;
+
+    }
+  }
+
+    @media screen and (min-width:1264px) and ( max-width:2504px){
+    #imageSize{
+      height:270px;
+      width:480px;
+      /* top: 200px; */
+    }
   }
 </style>
+
+//メディアクエリを当てるところから
