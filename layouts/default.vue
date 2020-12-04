@@ -1,8 +1,6 @@
 <template>
   <v-app dark>
     <v-app-bar
-      :clipped-left="clipped"
-      fixed
       app
     >
       <a href="/" style="color:white;">
@@ -15,6 +13,14 @@
         <nuxt />
       </v-container>
     </v-main>
+    <v-footer
+      app
+      dark
+    >
+      <div>つくったひと <a href="https://twitter.com/genshi0916" target="_blank" style="color:white;">げんし</a></div>
+      <div class="flex-grow-1"></div>
+      <div><v-icon>mdi-gmail</v-icon>genshi0916@gmail.com</div>
+    </v-footer>
   </v-app>
 </template>
 
@@ -22,24 +28,6 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Smash Bros. stage select app'
     }
   }
