@@ -5,7 +5,7 @@
       <v-row>
         <v-layout>
           <v-flex xs12>
-            <v-btn @click="reject">Next</v-btn>
+            <v-btn @click="reject">Select</v-btn>
           </v-flex>
           <v-flex>
             <v-btn to="/secondAndSubsequentSelect">SecondMatch</v-btn>
@@ -24,9 +24,8 @@
         <v-container>
           <v-row dense>
             <v-col>
-              <v-card dark>
+              <v-card dark outlined>
                 <v-card-title
-                  class="headline"
                   v-text="item.stageName"
                 >
                 </v-card-title>

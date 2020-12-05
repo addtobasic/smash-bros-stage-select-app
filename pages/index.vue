@@ -1,36 +1,30 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <!-- <logo /> -->
-        <!-- <vuetify-logo /> -->
-      </div>
-      <v-card>
-        <v-card-actions>
-          <v-btn
-            color="primary"
-            nuxt
-            to="/firstSelect"
-          >
-            start
-          </v-btn>
-
-          <v-btn
-            color="primary"
-            nuxt
-            to="/secondAndSubsequentSelect"
-          >
-            testSecond
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-container>
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8" md="6">
+        <v-card>
+          <v-card-title class="headline">
+            スマブラSPステージ選択アプリ
+          </v-card-title>
+          <v-card-text class="subtitle-1">
+            <div>これは名前の通り「大乱闘スマッシュブラザーズSP」のステージ選択アプリです。</div>
+            <div>ステージ画像の引用 : <a href="https://www.smashbros.com/ja_JP/stage/index.html" target="_brank">https://www.smashbros.com/ja_JP/stage/index.html</a></div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row justify="center" align="center">
+      <v-btn
+        outlined id="buttonSize" class="headline"
+        nuxt to="/firstSelect"
+      >
+        start
+      </v-btn>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-// import Logo from '~/components/Logo.vue'
-
 
 export default {
   components: {
@@ -38,3 +32,11 @@ export default {
   }
 }
 </script>
+<style>
+
+
+  #buttonSize{
+    height: 100px;
+    width: 200px;
+  }
+</style>

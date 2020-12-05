@@ -88,3 +88,7 @@ sw.*
 
 # Vim swap files
 *.swp
+
+firebase-debug.log
+firebase-debug.*.log
+.firebase

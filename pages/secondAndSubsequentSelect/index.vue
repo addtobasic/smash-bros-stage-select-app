@@ -1,77 +1,63 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
+  <div>
+    <p id="ipad_pro_size">{{DescriptionText[0].person}} : {{DescriptionText[0].text}}</p>
+    <v-container>
+      <v-row>
+        <v-layout>
+          <v-flex xs12>
+            <v-btn @click="reject">Select</v-btn>
+          </v-flex>
+          <v-flex>
+            <v-btn @click="reload">NextMatch</v-btn>
+          </v-flex>
+        </v-layout>
+      </v-row>
+    </v-container>
+    <v-layout
+      row
     >
-      <p>{{DescriptionText[0].person}}</p>
-      <p>{{DescriptionText[0].text}}</p>
-      <v-btn @click="reject">Next</v-btn>
-
-      <v-col
+      <v-flex
+        xl4 lg6 md4 xs12
         v-for="(item, i) in items"
         :key="i"
-        cols="12"
       >
-        <v-card dark>
-          <div class="justify-space-between" v-if="!$vuetify.breakpoint.mobile">
-            <div>
-              <v-card-title
-                class="headline"
-                v-text="item.stageName"
-              ></v-card-title>
-            </div>
-            <v-avatar
-              class="ma-3"
-              size="450"
-              tile
-              @click="item.select=!item.select"
-            >
-              <div v-if="item.select">
-                <v-img :src="item.picture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.firstReject && !item.secondReject">
-                <v-img :src="item.redPicture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.finalReject">
-                <v-img :src="item.checkPicture" id="size"></v-img>
-              </div>
-            </v-avatar>
-          </div>
-          <div class="d-flex justify-space-between" v-if="$vuetify.breakpoint.mobile">
-            <div>
-              <v-card-title
-                class="headline"
-                v-text="item.stageName"
-              ></v-card-title>
-            </div>
-            <v-avatar
-              class="ma-3"
-              size="450"
-              tile
-              @click="item.select=!item.select"
-            >
-              <div v-if="item.select">
-                <v-img :src="item.picture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.firstReject && !item.secondReject">
-                <v-img :src="item.redPicture" id="size"></v-img>
-              </div>
-              <div v-else-if="item.finalReject">
-                <v-img :src="item.checkPicture" id="size"></v-img>
-              </div>
-            </v-avatar>
-          </div>
-        </v-card>
-      </v-col>
-      <v-btn ><a href="/secondAndSubsequentSelect" style="color:white;">Next Match</a></v-btn>
-    </v-flex>
-  </v-layout>
+        <v-container>
+          <v-row dense>
+            <v-col>
+              <v-card dark outlined>
+                <v-card-title
+
+                  v-text="item.stageName"
+                >
+                </v-card-title>
+                <v-layout justify-center>
+                  <v-avatar
+                    class="ma-1"
+                    size=""
+                    tile
+                    @click="item.select=!item.select"
+                  >
+                    <div v-if="item.select">
+                      <v-img :src="item.picture" id="imageSize"></v-img>
+                    </div>
+                    <div v-else-if="item.firstReject && !item.secondReject">
+                      <v-img :src="item.redPicture" id="imageSize"></v-img>
+                    </div>
+                    <div v-else-if="item.secondReject && !item.finalReject">
+                      <v-img :src="item.bluePicture" id="imageSize"></v-img>
+                    </div>
+                    <div v-else-if="item.finalReject">
+                      <v-img :src="item.checkPicture" id="imageSize"></v-img>
+                    </div>
+                  </v-avatar>
+                </v-layout>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 <script>
   let rejectNum = 0;
@@ -104,6 +90,10 @@
             this.DescriptionText[0].text = "対戦するステージを選択してください"
           }
         }
+      },
+
+      reload:function(){
+        location.reload();
       }
     },
     data:()=>({
@@ -190,8 +180,53 @@
   )}
 </script>
 <style>
-  #size{
-    height:270px;
-    width:480px;
+  @media screen and (min-width:0px) and ( max-width:600px){
+    #imageSize{
+      height:180px;
+      width:320px;
+    }
+  }
+
+  @media screen and (min-width:600px) and ( max-width:960px){
+    #imageSize{
+      height:270px;
+      width:480px;
+    }
+  }
+
+  @media screen and (min-width:960px) and ( max-width:1367px){
+    #imageSize{
+      height:162px;
+      width:288px;
+    }
+  }
+
+  @media screen and (orientation: portrait) and (min-width:1023px) and ( max-width:1025px){
+    #imageSize{
+      height:162px;
+      width:288px;
+    }
+
+    #ipad_pro_size{
+      padding-top:180px;
+      /*
+        ipad proの縦の長さと ipadの横の長さが同じなのに涙を流して書いた部分です
+        なにか良い実装方法があれば教えていただけると幸いです
+       */
+    }
+  }
+
+  @media screen and (min-width:1367px) and ( max-width:2504px){
+    #imageSize{
+      height:270px;
+      width:480px;
+    }
+  }
+
+  @media screen and (min-width:2504px) and ( max-width:3000px){
+    #imageSize{
+      height:306px;
+      width:544px;
+    }
   }
 </style>
