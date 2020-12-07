@@ -23,18 +23,14 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
+  export default {
+    components: {
 
-export default {
-  components: {
-    // Logo,
+    }
   }
-}
 </script>
 <style>
-
-
   #buttonSize{
     height: 100px;
     width: 200px;
