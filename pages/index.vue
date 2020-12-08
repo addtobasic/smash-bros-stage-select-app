@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row justify="center" align="center" id="space">
+    <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="6">
         <v-card>
           <v-card-title id="title">
@@ -8,13 +8,13 @@
           </v-card-title>
           <v-card-text id="cardText">
             <div>これは名前の通り「大乱闘スマッシュブラザーズSP」のステージ選択アプリです。</div>
-            <div>スマートフォンで使用することを想定していないのでWebサイトやタブレットから開くことをオススメします。</div>
+            <div>スマートフォンで使用することを想定していないのでPCやタブレットから開くことをオススメします。</div>
             <div>ステージ画像の引用 : <a href="https://www.smashbros.com/ja_JP/stage/index.html" target="_brank">https://www.smashbros.com/ja_JP/stage/index.html</a></div>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <v-row justify="center">
+    <v-row justify="center" id="hoge">
       <v-btn
         outlined id="buttonSize" class="headline"
         nuxt to="/firstSelect"
@@ -33,10 +33,6 @@
 </script>
 <style scoped>
   @media screen and (min-width:0px) and ( max-width:600px){
-    #space{
-      padding-bottom: 10px;
-    }
-
     #title{
       font-size: 16px;
     }
@@ -48,14 +44,17 @@
     #buttonSize{
       height: 70px;
       width: 140px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform : translate(-50%,-50%);
+      transform : translate(-50%,-50%);
+      text-align: center;
+
     }
   }
 
   @media screen and (min-width:600px) and ( max-width:960px){
-    #space{
-      padding-bottom: 170px;
-    }
-
     #title{
       font-size: 18px;
     }
@@ -65,45 +64,77 @@
     }
 
     #buttonSize{
-      height: 70px;
-      width: 140px;
+      height: 100px;
+      width: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform : translate(-50%,-50%);
+      transform : translate(-50%,-50%);
+      text-align: center;
     }
   }
 
   @media screen and (min-width:960px) and ( max-width:1367px){
-    #buttonSize{
-
-    }
-  }
-
-  @media screen and (orientation: portrait) and (min-width:1023px) and ( max-width:1025px){
-    #buttonSize{
-
+    #title{
+      font-size: 20px;
     }
 
-    #ipad_pro_size{
-      /*
-        ipad proの縦の長さと ipadの横の長さが同じなのに涙を流して書いた部分です
-        なにか良い実装方法があれば教えていただけると幸いです
-       */
+    #cardText{
+      font-size: 14px;
+    }
+
+    #buttonSize{
+      height: 150px;
+      width: 300px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform : translate(-50%,-50%);
+      transform : translate(-50%,-50%);
+      text-align: center;
     }
   }
 
   @media screen and (min-width:1367px) and ( max-width:2504px){
-    #space{
-      padding-bottom: 200px;
+    #title{
+      font-size: 22px;
     }
+
+    #cardText{
+      font-size: 16px;
+    }
+
     #buttonSize{
-      height: 100px;
-      width: 200px;
+      height: 170px;
+      width: 340px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform : translate(-50%,-50%);
+      transform : translate(-50%,-50%);
+      text-align: center;
     }
   }
 
   @media screen and (min-width:2504px) and ( max-width:3000px){
-    #buttonSize{
+    #title{
+      font-size: 24px;
+    }
 
+    #cardText{
+      font-size: 18px;
+    }
+
+    #buttonSize{
+      height: 170px;
+      width: 340px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform : translate(-50%,-50%);
+      transform : translate(-50%,-50%);
+      text-align: center;
     }
   }
-
-
 </style>
