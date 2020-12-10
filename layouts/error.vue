@@ -1,22 +1,52 @@
 <template>
   <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-      <NuxtLink to="/">
-      Home page
-    </NuxtLink>
-    <div class="animation" id="icon">
-      <img class="img1" src="../static/img/genshi_line_animated.svg" alt="genshi_svg">
-      <img class="img2" src="../static/img/icon.jpg" alt="icon_img">
-    </div>
+    <v-card
+      class="mx-auto"
+      max-width="700"
+      outlined
+    >
+      <v-list-item three-line>
+        <v-list-item-content>
+          <div class="overline mb-4" v-if="error.statusCode === 404">
+              {{ pageNotFound }}
+          </div>
+          <div v-else>
+            {{ otherError }}
+          </div>
+          <v-list-item-title class="headline mb-1">
+            <NuxtLink to="/">Go back to the top page.</NuxtLink>
+          </v-list-item-title>
+        </v-list-item-content>
+
+        <div class="animation" id="icon">
+          <img class="img1" src="../static/img/genshi_line_animated.svg" alt="genshi_svg">
+          <img class="img2" src="../static/img/icon.jpg" alt="icon_img">
+        </div>
+      </v-list-item>
+
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+          outlined
+          rounded
+          text
+          @click="loadingFunction"
+        >
+          <v-icon>mdi-reload</v-icon>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
   </v-app>
 </template>
 
 <script>
+
+function loadingFunction() {
+  var url = "./static/genshi_line_animated.svg?r=" + Math.random();
+  document.querySelector("#icon img").setAttribute("src", url);
+  loaderScreen = setTimeout(showPage, 4000);
+}
+
 export default {
   layout: 'empty',
   props: {
@@ -25,10 +55,19 @@ export default {
       default: null
     }
   },
+
+  methods: {
+    loadingFunction:function(){
+      var url = "./static/genshi_line_animated.svg?r=" + Math.random();
+      document.querySelector("#icon img").setAttribute("src", url);
+      loaderScreen = setTimeout(showPage, 4000);
+    }
+  },
+
   data () {
     return {
       pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      otherError: 'An error occurred',
     }
   },
   head () {
@@ -42,14 +81,10 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 20px;
-}
-
 
 #icon {
-  height: 40vh;
-  width: 40vh;
+  width: 300px;
+  background-color: white;
 }
 
 .animation {
