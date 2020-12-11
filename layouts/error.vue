@@ -1,52 +1,48 @@
 <template>
   <v-app dark>
-    <v-card
-      class="mx-auto"
-      max-width="700"
-      outlined
-    >
-      <v-list-item three-line>
-        <v-list-item-content>
-          <div class="overline mb-4" v-if="error.statusCode === 404">
-              {{ pageNotFound }}
-          </div>
-          <div v-else>
-            {{ otherError }}
-          </div>
-          <v-list-item-title class="headline mb-1">
-            <NuxtLink to="/">Go back to the top page.</NuxtLink>
-          </v-list-item-title>
-        </v-list-item-content>
-
-        <div class="animation" id="icon">
-          <img class="img1" src="../static/img/genshi_line_animated.svg" alt="genshi_svg">
-          <img class="img2" src="../static/img/icon.jpg" alt="icon_img">
-        </div>
-      </v-list-item>
-
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn
-          outlined
-          rounded
-          text
-          @click="loadingFunction"
-        >
-          <v-icon>mdi-reload</v-icon>
-        </v-btn>
-      </v-card-actions>
-    </v-card>
+    <v-layout>
+      <v-container>
+        <v-card outlined id="main">
+          <v-row>
+            <v-col>
+              <div>
+                <v-card-title class="headline">
+                  <div v-if="error.statusCode === 404">
+                      {{ pageNotFound }}
+                  </div>
+                  <div v-else>
+                    {{ otherError }}
+                  </div>
+                </v-card-title>
+                <v-card-subtitle>
+                  <NuxtLink to="/">Go back to the top page.</NuxtLink>
+                </v-card-subtitle>
+              </div>
+            </v-col>
+            <v-col>
+              <div class="animation" id="icon">
+                <img class="img1" src="../static/img/genshi_line_animated.svg" alt="genshi_svg">
+                <img class="img2" src="../static/img/icon.jpg" alt="icon_img">
+              </div>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  outlined
+                  icon
+                  @click="reload"
+                >
+                  <v-icon>mdi-reload</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-container>
+    </v-layout>
   </v-app>
 </template>
 
 <script>
-
-function loadingFunction() {
-  var url = "./static/genshi_line_animated.svg?r=" + Math.random();
-  document.querySelector("#icon img").setAttribute("src", url);
-  loaderScreen = setTimeout(showPage, 4000);
-}
-
 export default {
   layout: 'empty',
   props: {
@@ -57,10 +53,8 @@ export default {
   },
 
   methods: {
-    loadingFunction:function(){
-      var url = "./static/genshi_line_animated.svg?r=" + Math.random();
-      document.querySelector("#icon img").setAttribute("src", url);
-      loaderScreen = setTimeout(showPage, 4000);
+    reload:function(){
+      location.reload(true);
     }
   },
 
@@ -79,11 +73,16 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 
+#main{
+  top: 40%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+}
+
 #icon {
-  width: 300px;
   background-color: white;
 }
 
@@ -136,4 +135,45 @@ export default {
     animation-delay:5s;
   }
 
+  @media screen and (min-width:0px) and ( max-width:600px){
+    #icon{
+      width:300px;
+    }
+  }
+
+  @media screen and (min-width:600px) and ( max-width:767px){
+    #icon{
+      width:330px;
+    }
+  }
+
+  @media screen and (min-width:767px) and ( max-width:960px){
+    #icon{
+      width:430px;
+    }
+  }
+
+  @media screen and (min-width:960px) and ( max-width:1367px){
+    #icon{
+      width:500px;
+    }
+  }
+
+  @media screen and (min-width:1367px) and ( max-width:2504px){
+    #icon{
+      width:500px;
+    }
+    #main{
+      width: 900px;
+    }
+  }
+
+  @media screen and (min-width:2504px) and ( max-width:3000px){
+    #icon{
+      width:544px;
+    }
+    #main{
+      width: 1000px;
+    }
+  }
 </style>

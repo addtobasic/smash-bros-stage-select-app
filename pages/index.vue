@@ -1,20 +1,21 @@
 <template>
   <v-container>
     <v-row justify="center" align="center">
-      <v-col cols="12" sm="8" md="6">
+      <v-col cols="12" xs="12" sm="10" md="10" lg="10" xl="8">
         <v-card>
           <v-card-title id="title">
             スマブラSPステージ選択アプリ
           </v-card-title>
           <v-card-text id="cardText">
-            <div>これは名前の通り「大乱闘スマッシュブラザーズSP」のステージ選択アプリです。</div>
-            <div>スマートフォンで使用することを想定していないのでPCやタブレットから開くことをオススメします。</div>
-            <div>ステージ画像の引用 : <a href="https://www.smashbros.com/ja_JP/stage/index.html" target="_brank">https://www.smashbros.com/ja_JP/stage/index.html</a></div>
+            <li>これは名前の通り「大乱闘スマッシュブラザーズSP」のステージ選択アプリです。</li>
+            <li>スマートフォンで使用することを想定していないのでPCやタブレットから開くことをオススメします。</li>
+            <li>ソースコードは<a href="https://github.com/Genshi0916/smash-bros-stage-select-app" target="_brank">こちら</a></li>
+            <li>ステージ画像の引用 : <a href="https://www.smashbros.com/ja_JP/stage/index.html" target="_brank">https://www.smashbros.com/ja_JP/stage/index.html</a></li>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <v-row justify="center" id="hoge">
+    <v-row justify="center">
       <v-btn
         outlined id="buttonSize" class="headline"
         nuxt to="/firstSelect"
@@ -32,6 +33,15 @@
   }
 </script>
 <style scoped>
+  #buttonSize{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    text-align: center;
+  }
+
   @media screen and (min-width:0px) and ( max-width:600px){
     #title{
       font-size: 16px;
@@ -44,13 +54,6 @@
     #buttonSize{
       height: 70px;
       width: 140px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform : translate(-50%,-50%);
-      transform : translate(-50%,-50%);
-      text-align: center;
-
     }
   }
 
@@ -66,12 +69,6 @@
     #buttonSize{
       height: 100px;
       width: 200px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform : translate(-50%,-50%);
-      transform : translate(-50%,-50%);
-      text-align: center;
     }
   }
 
@@ -87,12 +84,6 @@
     #buttonSize{
       height: 150px;
       width: 300px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform : translate(-50%,-50%);
-      transform : translate(-50%,-50%);
-      text-align: center;
     }
   }
 
@@ -108,12 +99,6 @@
     #buttonSize{
       height: 170px;
       width: 340px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform : translate(-50%,-50%);
-      transform : translate(-50%,-50%);
-      text-align: center;
     }
   }
 
@@ -129,12 +114,6 @@
     #buttonSize{
       height: 170px;
       width: 340px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform : translate(-50%,-50%);
-      transform : translate(-50%,-50%);
-      text-align: center;
     }
   }
 </style>
