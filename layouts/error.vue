@@ -41,8 +41,9 @@
     </v-layout>
   </v-app>
 </template>
-
 <script>
+
+
 export default {
   layout: 'empty',
   props: {
@@ -51,11 +52,18 @@ export default {
       default: null
     }
   },
-
   methods: {
     reload:function(){
-      location.reload(true);
-    }
+      var now = new Date().getTime();
+      $('.img1').attr('src','./_nuxt/img/genshi_line_animated.9ce9c6d.svg'+'?'+''+now);
+      // localはこっち $('.img1').attr('src','./_nuxt/static/img/genshi_line_animated.svg'+'?'+''+now);
+
+      $(".img2").removeClass('animated');
+
+      setTimeout(function() {
+        $(".img2").addClass('animated');
+      }, 1000);
+    },
   },
 
   data () {
@@ -74,57 +82,80 @@ export default {
 }
 </script>
 <style scoped>
-
-#main{
-  top: 40%;
-  left: 50%;
-  -webkit-transform : translate(-50%,-50%);
-  transform : translate(-50%,-50%);
-}
-
-#icon {
-  background-color: white;
-}
-
-.animation {
-	margin: auto;
-	position: relative;
-}
-
-.animation img {
-	width: 50%;
-}
-
-.animation .img1 {
-	display: block;
-	margin: 0 auto;
-}
-
-.animation .img2 {
-	position: absolute;
-	top: 0;
-	left: 25%;
-}
-
-@keyframes animation {
-	0% {
-		opacity: 0;
-	}
-
-	12.5% {
-		opacity: 0;
-	}
-
-	25.5% {
-		opacity: 0;
-	}
-	37.5% {
-		opacity: 0;
+  #main{
+    top: 40%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
   }
-  50% {
-		opacity: 1;
+
+  #icon {
+    background-color: white;
   }
+
+  .animation {
+    margin: auto;
+    position: relative;
+  }
+
+  .animation img {
+    width: 50%;
+  }
+
+  .animation .img1 {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .animation .img2 {
+    position: absolute;
+    top: 0;
+    left: 25%;
+  }
+
+.img2.animated {
+  animation: fade-in 6s;
 }
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    12.5% {
+      opacity: 0;
+    }
+
+    25.5% {
+      opacity: 0;
+    }
+    37.5% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+}
+  @keyframes animation {
+    0% {
+      opacity: 0;
+    }
+
+    12.5% {
+      opacity: 0;
+    }
+
+    25.5% {
+      opacity: 0;
+    }
+    37.5% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
   .animation img {
     animation-name: animation;
     animation-duration: 7s;
