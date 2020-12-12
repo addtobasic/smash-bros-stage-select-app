@@ -33,22 +33,13 @@
   }
 </script>
 <style scoped>
-  #buttonSize{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform : translate(-50%,-50%);
-    transform : translate(-50%,-50%);
-    text-align: center;
-  }
-
   @media screen and (min-width:0px) and ( max-width:600px){
     #title{
-      font-size: 16px;
+      font-size: 15px;
     }
 
     #cardText{
-      font-size: 10px;
+      font-size: 9px;
     }
 
     #buttonSize{

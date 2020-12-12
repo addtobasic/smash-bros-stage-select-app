@@ -1,48 +1,37 @@
 <template>
   <v-app dark>
-    <v-layout>
-      <v-container>
-        <v-card outlined id="main">
-          <v-row>
-            <v-col>
-              <div>
-                <v-card-title class="headline">
-                  <div v-if="error.statusCode === 404">
-                      {{ pageNotFound }}
-                  </div>
-                  <div v-else>
-                    {{ otherError }}
-                  </div>
-                </v-card-title>
-                <v-card-subtitle>
-                  <NuxtLink to="/">Go back to the top page.</NuxtLink>
-                </v-card-subtitle>
-              </div>
-            </v-col>
-            <v-col>
-              <div class="animation" id="icon">
-                <img class="img1" src="../static/img/genshi_line_animated.svg" alt="genshi_svg">
-                <img class="img2" src="../static/img/icon.jpg" alt="icon_img">
-              </div>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                  outlined
-                  icon
-                  @click="reload"
-                >
-                  <v-icon>mdi-reload</v-icon>
-                </v-btn>
-              </v-card-actions>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-container>
-    </v-layout>
+    <v-card outlined id="main">
+      <div>
+        <v-card-title class="headline">
+          <div v-if="error.statusCode === 404">
+            {{ pageNotFound }}
+          </div>
+          <div v-else>
+            {{ otherError }}
+          </div>
+        </v-card-title>
+        <v-card-subtitle>
+          <NuxtLink to="/">Go back to the top page.</NuxtLink>
+        </v-card-subtitle>
+      </div>
+      <div class="animation" id="icon">
+        <img class="img1" src="../static/img/genshi_line_animated.svg" alt="genshi_svg">
+        <img class="img2" src="../static/img/icon.jpg" alt="icon_img">
+      </div>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+            outlined
+            icon
+            @click="reload"
+        >
+          <v-icon>mdi-reload</v-icon>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
   </v-app>
 </template>
 <script>
-
 
 export default {
   layout: 'empty',
@@ -55,8 +44,10 @@ export default {
   methods: {
     reload:function(){
       var now = new Date().getTime();
-      $('.img1').attr('src','./_nuxt/img/genshi_line_animated.9ce9c6d.svg'+'?'+''+now);
-      // localはこっち $('.img1').attr('src','./_nuxt/static/img/genshi_line_animated.svg'+'?'+''+now);
+      $('.img1').attr('src','https://smash-bros-stage-select-app.web.app/_nuxt/img/genshi_line_animated.9ce9c6d.svg'+'?'+''+now);
+
+      // ↓localはこっち
+      // $('.img1').attr('src','./_nuxt/static/img/genshi_line_animated.svg'+'?'+''+now);
 
       $(".img2").removeClass('animated');
 
