@@ -1,20 +1,37 @@
 # smash-bros-stage-select-app
 
-## Build Setup
+ 
+大乱闘スマッシュブラザーズSPで使われるステージ選択アプリを作りました。
+
+url : [https://smash-bros-stage-select-app.web.app/](https://smash-bros-stage-select-app.web.app/)
+ 
+# DEMO
+ 
+画面上の指示分に従って拒否ステージを選択した状態でSELECTボタンを押します
+
+1試合目は5ステージ2試合目以降は7ステージなので右上のSECONDMATCHボタンを押すことで7ステージの中から選択することができます。
+
+![](demo.png "demo")
+ 
+# Requirement
+ 
+* vue
+* vuetify
+ 
+# Installation
+ 
+
+ 
+```bash
+$ npm install -g @vue/cli
+$ npm install vuetify
+```
+ 
+# Usage
 
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+$ npm run serve
 ```
+# Hosting
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+This page is hosted by firebase.
