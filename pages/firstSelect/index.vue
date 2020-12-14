@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p id="ipad_pro_size">{{DescriptionText[0].person}} : {{DescriptionText[0].text}}</p>
+    <p id="ipad_pro_size">{{DescriptionText.person}} : {{DescriptionText.text}}</p>
     <v-container>
       <v-row>
         <v-layout>
@@ -73,7 +73,6 @@
         this.items.forEach(function(item){
           if(item.select === false){
             i++;
-            console.log("画像のfalseの数"+i)
           }
         })
 
@@ -84,8 +83,8 @@
             this.items.forEach(function(item){
               if(item.select)item.secondReject = true
             })
-            this.DescriptionText[0].person = "じゃんけん敗者"
-            this.DescriptionText[0].text = "拒否ステージを2つ選択してください"
+            this.DescriptionText.person = "じゃんけん敗者"
+            this.DescriptionText.text = "拒否ステージを2つ選択してください"
           }
         }
 
@@ -97,20 +96,19 @@
               if(item.select)
               item.finalReject = true
             })
-            this.DescriptionText[0].person = "じゃんけん勝者"
-            this.DescriptionText[0].text = "残りのステージから対戦ステージを選択してください"
+            this.DescriptionText.person = "じゃんけん勝者"
+            this.DescriptionText.text = "残りのステージから対戦ステージを選択してください"
           }
         }
       }
     },
 
     data:()=>({
-      DescriptionText:[
-        {
-          person:"じゃんけん勝者",
-          text:"拒否ステージを1つ選択してください"
-        }
-      ],
+      DescriptionText:
+      {
+        person:"じゃんけん勝者",
+        text:"拒否ステージを1つ選択してください"
+      },
 
       items:[
         {
@@ -169,8 +167,8 @@
           finalReject:false,
         },
       ]
-    }
-  )}
+    })
+  }
 </script>
 <style>
   @media screen and (min-width:0px) and ( max-width:600px){

@@ -35,7 +35,6 @@ export default {
 </script>
 <style>
   a {
-    color:red;
     text-decoration: none;
   }
 </style>

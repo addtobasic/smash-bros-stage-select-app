@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p id="ipad_pro_size">{{DescriptionText[0].person}} : {{DescriptionText[0].text}}</p>
+    <p id="ipad_pro_size">{{DescriptionText.person}} : {{DescriptionText.text}}</p>
     <v-container>
       <v-row>
         <v-layout>
@@ -86,8 +86,8 @@
                 item.finalReject = true
               }
             })
-            this.DescriptionText[0].person = "前回の試合の敗者"
-            this.DescriptionText[0].text = "対戦するステージを選択してください"
+            this.DescriptionText.person = "前回の試合の敗者"
+            this.DescriptionText.text = "対戦するステージを選択してください"
           }
         }
       },
@@ -97,12 +97,11 @@
       }
     },
     data:()=>({
-      DescriptionText:[
-        {
-          person:"前回の試合の勝者",
-          text:"拒否ステージを2つ選択してください"
-        }
-      ],
+      DescriptionText:
+      {
+        person:"前回の試合の勝者",
+        text:"拒否ステージを2つ選択してください"
+      },
 
       items:[
         {
