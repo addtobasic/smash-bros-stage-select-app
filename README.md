@@ -24,8 +24,7 @@ url : [https://smash-bros-stage-select-app.web.app/](https://smash-bros-stage-se
 
  
 ```bash
-$ npm install -g @vue/cli
-$ npm install vuetify
+$ npm install
 ```
  
 # Usage
