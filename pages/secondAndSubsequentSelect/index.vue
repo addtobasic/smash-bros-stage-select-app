@@ -26,7 +26,6 @@
             <v-col>
               <v-card dark outlined>
                 <v-card-title
-
                   v-text="item.stageName"
                 >
                 </v-card-title>
@@ -38,16 +37,68 @@
                     @click="item.select=!item.select"
                   >
                     <div v-if="item.select">
-                      <v-img :src="item.picture" id="imageSize"></v-img>
+                      <v-img :src="item.picture" :lazy-src="item.lazyImage" id="imageSize">
+                        <template v-slot:placeholder>
+                          <v-row
+                            class="fill-height ma-0"
+                            align="center"
+                            justify="center"
+                          >
+                            <v-progress-circular
+                              indeterminate
+                              color="grey lighten-5"
+                            ></v-progress-circular>
+                          </v-row>
+                        </template>
+                      </v-img>
                     </div>
                     <div v-else-if="item.firstReject && !item.secondReject">
-                      <v-img :src="item.redPicture" id="imageSize"></v-img>
+                      <v-img :src="item.redPicture" :lazy-src="item.lazyImage" id="imageSize">
+                        <template v-slot:placeholder>
+                          <v-row
+                            class="fill-height ma-0"
+                            align="center"
+                            justify="center"
+                          >
+                            <v-progress-circular
+                              indeterminate
+                              color="grey lighten-5"
+                            ></v-progress-circular>
+                          </v-row>
+                        </template>
+                      </v-img>
                     </div>
                     <div v-else-if="item.secondReject && !item.finalReject">
-                      <v-img :src="item.bluePicture" id="imageSize"></v-img>
+                      <v-img :src="item.bluePicture" :lazy-src="item.lazyImage" id="imageSize">
+                        <template v-slot:placeholder>
+                          <v-row
+                            class="fill-height ma-0"
+                            align="center"
+                            justify="center"
+                          >
+                            <v-progress-circular
+                              indeterminate
+                              color="grey lighten-5"
+                            ></v-progress-circular>
+                          </v-row>
+                        </template>
+                      </v-img>
                     </div>
                     <div v-else-if="item.finalReject">
-                      <v-img :src="item.checkPicture" id="imageSize"></v-img>
+                      <v-img :src="item.checkPicture" :lazy-src="item.lazyImage" id="imageSize">
+                        <template v-slot:placeholder>
+                          <v-row
+                            class="fill-height ma-0"
+                            align="center"
+                            justify="center"
+                          >
+                            <v-progress-circular
+                              indeterminate
+                              color="grey lighten-5"
+                            ></v-progress-circular>
+                          </v-row>
+                        </template>
+                      </v-img>
                     </div>
                   </v-avatar>
                 </v-layout>
@@ -109,6 +160,7 @@
           picture:require("static/stage/normal/finalDestination.png"),
           redPicture:require("static/stage/red/finalDestination_red.png"),
           checkPicture:require("static/stage/check/finalDestination_check.png"),
+          lazyImage:"https://github.com/Genshi0916/smash-bros-stage-select-app/blob/main/static/stage/normal/finalDestination.png?raw=true",
           select:true,
           firstReject:true,
           secondReject:false,
@@ -119,6 +171,7 @@
           picture:require("static/stage/normal/battleField.png"),
           redPicture:require("static/stage/red/battleField_red.png"),
           checkPicture:require("static/stage/check/battleField_check.png"),
+          lazyImage:"https://github.com/Genshi0916/smash-bros-stage-select-app/blob/main/static/stage/normal/battleField.png?raw=true",
           select:true,
           firstReject:true,
           secondReject:false,
@@ -129,6 +182,7 @@
           picture:require("static/stage/normal/pokemonStadium2.png"),
           redPicture:require("static/stage/red/pokemonStadium2_red.png"),
           checkPicture:require("static/stage/check/pokemonStadium2_check.png"),
+          lazyImage:"https://github.com/Genshi0916/smash-bros-stage-select-app/blob/main/static/stage/normal/pokemonStadium2.png?raw=true",
           select:true,
           firstReject:true,
           secondReject:false,
@@ -139,6 +193,7 @@
           picture:require("static/stage/normal/townAndCity.png"),
           redPicture:require("static/stage/red/townAndCity_red.png"),
           checkPicture:require("static/stage/check/townAndCity_check.png"),
+          lazyImage:"https://github.com/Genshi0916/smash-bros-stage-select-app/blob/main/static/stage/normal/townAndCity.png?raw=true",
           select:true,
           firstReject:true,
           secondReject:false,
@@ -149,6 +204,7 @@
           picture:require("static/stage/normal/smashVille.png"),
           redPicture:require("static/stage/red/smashVille_red.png"),
           checkPicture:require("static/stage/check/smashVille_check.png"),
+          lazyImage:"https://github.com/Genshi0916/smash-bros-stage-select-app/blob/main/static/stage/normal/smashVille.png?raw=true",
           select:true,
           firstReject:true,
           secondReject:false,
@@ -159,6 +215,7 @@
           picture:require("static/stage/normal/kalosPokemonLeague.png"),
           redPicture:require("static/stage/red/kalosPokemonLeague_red.png"),
           checkPicture:require("static/stage/check/kalosPokemonLeague_check.png"),
+          lazyImage:"https://github.com/Genshi0916/smash-bros-stage-select-app/blob/main/static/stage/normal/kalosPokemonLeague.png?raw=true",
           select:true,
           firstReject:true,
           secondReject:false,
@@ -169,6 +226,7 @@
           picture:require("static/stage/normal/lylat.png"),
           redPicture:require("static/stage/red/lylat_red.png"),
           checkPicture:require("static/stage/check/lylat_check.png"),
+          lazyImage:"https://github.com/Genshi0916/smash-bros-stage-select-app/blob/main/static/stage/normal/lylat.png?raw=true",
           select:true,
           firstReject:true,
           secondReject:false,
