@@ -9,7 +9,7 @@
           <v-card-text id="cardText">
             <li>これは名前の通り「大乱闘スマッシュブラザーズSP」のステージ選択アプリです。</li>
             <li>スマートフォンで使用することを想定していないのでPCやタブレットから開くことをオススメします。</li>
-            <li>ソースコードは<a href="https://github.com/Genshi0916/smash-bros-stage-select-app" target="_brank">こちら</a></li>
+            <li>ソースコードは<a href="https://github.com/addtobasic/smash-bros-stage-select-app" target="_brank">こちら</a></li>
             <li>ステージ画像の引用 : <a href="https://www.smashbros.com/ja_JP/stage/index.html" target="_brank">https://www.smashbros.com/ja_JP/stage/index.html</a></li>
           </v-card-text>
         </v-card>

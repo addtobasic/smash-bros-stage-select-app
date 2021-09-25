@@ -17,9 +17,9 @@
       app
       dark
     >
-      <div>つくったひと <a href="https://twitter.com/genshi0916" target="_blank">げんし</a></div>
+      <div>つくったひと <a href="https://twitter.com/addtobasic" target="_blank">げんし</a></div>
       <div class="flex-grow-1"></div>
-      <div><v-icon>mdi-gmail</v-icon>genshi0916@gmail.com</div>
+      <div><v-icon>mdi-gmail</v-icon>addtobasic@gmail.com</div>
     </v-footer>
   </v-app>
 </template>
